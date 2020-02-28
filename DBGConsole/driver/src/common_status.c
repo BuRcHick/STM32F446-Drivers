@@ -2,13 +2,13 @@
 #include <stdlib.h>
 const char* cmn_status_to_string(const cmn_status_t status) {
 	switch (status) {
-		case OK:
+		case STATUS_OK:
 			return "OK";
-		case ERR:
+		case STATUS_ERROR:
 			return "ERR";
-		case INV_ARG:
+		case STATUS_INV_ARG:
 			return "INV_ARG";
-		case TIMEOUT:
+		case STATUS_TIMEOUT:
 			return "TIMEOUT";
 		default:
 			return NULL;

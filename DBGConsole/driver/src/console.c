@@ -1,7 +1,7 @@
 #include <assert.h>
 #include <string.h>
 #include "console_api.h"
-#include "stm32f4xx_hal.h"
+#include "main.h"
 #define CNSL_CHECK_ERR(c, e) \
 	{                        \
 		if (!(c)) {          \

@@ -3,7 +3,7 @@
 ######################################
 CURR_DIR = $(shell pwd)
 STM32GenDir = $(CURR_DIR)/cubemx_gen/
-STM32Makefile = $(CURR_DIR)/cubemx_gen/Makefile
+STM32Makefile = $(STM32GenDir)/Makefile
 include $(STM32Makefile)
 
 BUILD_DIR = $(CURR_DIR)/build
@@ -52,4 +52,4 @@ $(BUILD_DIR):
 # flash
 #######################################
 flash: $(BUILD_DIR)/$(TARGET).elf
-	openocd -f interface/stlink-v2-1.cfg  -f target/stm32f4x.cfg -c "program $(BUILD_DIR)/$(TARGET).elf verify reset exit"
+	openocd -f interface/stlink-v2-1.cfg  -f target/stm32f1x.cfg -c "program $(BUILD_DIR)/$(TARGET).elf"

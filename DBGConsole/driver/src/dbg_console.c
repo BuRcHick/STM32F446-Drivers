@@ -92,10 +92,12 @@ cmn_status_t dbg_console_set_log_level(dbg_console_log_t log_level) {
 cmn_status_t dbg_console_println(dbg_console_log_t log_level, uint8_t *fmt, ...) {
 	if (g_dbg_console.log_level & log_level) {
 		DBG_CONSOLE_CHECK_ERR(log_level_to_string(log_level), STATUS_INV_ARG);
+	} else {
+		return STATUS_OK;
 	}
 	va_list args;
 	console_print("\n\r");
-	console_print("[%s] ", log_level_to_string(log_level));
+	console_print("[%s]\t", log_level_to_string(log_level));
 	va_start(args, fmt);
 	console_print_vargs(fmt, args);
 	va_end(args);
@@ -104,6 +106,7 @@ cmn_status_t dbg_console_println(dbg_console_log_t log_level, uint8_t *fmt, ...)
 
 cmn_status_t dbg_console_input_handling() {
 	DBG_CONSOLE_CHECK_ERR(g_dbg_console.show_list_key, LOG_ERROR);
+	console_println("%s", __FUNCTION__);
 	bool is_init_type = true;
 	uint8_t recived;
 	while (1) {

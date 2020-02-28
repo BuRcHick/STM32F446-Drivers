@@ -138,7 +138,7 @@ cmn_status_t dbg_console_input_handling() {
 				}
 			} else {
 				console_print_symbol(recived);
-				strcpy((char *)s_dbg_console_buff + strlen((const char *)s_dbg_console_buff), (const char *)&recived);
+				sprintf((char *)s_dbg_console_buff + strlen((const char *)s_dbg_console_buff), "%c", (const char)recived);
 			}
 		}
 	}
